@@ -5,7 +5,7 @@ import java.util.concurrent.locks.ReentrantLock;
 public class Test {
     private static int a=0;
     public static void main(String[] args) throws InterruptedException {
-        /*ReentrantLock lock=new ReentrantLock();
+        ReentrantLock lock=new ReentrantLock();
         lock.lock();
         //dasfsdfads
         lock.unlock();
@@ -27,7 +27,7 @@ public class Test {
         thread1.start();
         thread2.start();
 
-        mcs.runt();*/
+        mcs.runt();
        /* Thread thread1=new Thread(new Runnable() {
             @Override
             public void run() {
@@ -49,7 +49,7 @@ public class Test {
         thread1.join();
         thread1.join();
         System.out.println(a);*/
-        Thread thread1=new Thread(new Runnable() {
+        /*Thread thread1=new Thread(new Runnable() {
             @Override
             public void run() {
                 System.out.println("1111");
@@ -67,6 +67,6 @@ public class Test {
             System.out.println(i);
         }
         //dasfsdfads
-        lock.unlock();
+        lock.unlock();*/
     }
 }

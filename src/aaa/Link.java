@@ -1,5 +1,6 @@
 package aaa;
 
+import java.security.PublicKey;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.concurrent.CountDownLatch;
@@ -11,12 +12,13 @@ public class Link {
     private static int size=0;
 
     //构造链表
-    public void init(ArrayList<Integer> arrayList){
+    public void init(ArrayList<De> arrayList){
         if (arrayList==null){
             System.out.println("链表为空");
             return;
         }
-        Collections.sort(arrayList);
+
+        //Collections.sort(arrayList);
         /*for (int i = 0; i < arrayList.size(); i++) {
             System.out.println(arrayList.get(i));
         }*/
@@ -32,16 +34,20 @@ public class Link {
         }
     }
 
-    public void add(int time){
+    /*public void add(int time){
         Node node=new Node(time,null);
         size++;
-        head.setNext(node);
+        tail.setNext(node);
         tail=node;
+    }*/
+    public void add(De time){
+        Node node=new Node(time,null);
+        //while(time)
     }
 
     public void ergodic() throws InterruptedException {
         System.out.println("1111");
-        if (head!=null) {
+       /* if (head!=null) {
             while (true) {
                 System.out.println(head.getTime());
                 if (head.getNext() != null) {
@@ -50,11 +56,27 @@ public class Link {
                     break;
                 }
             }
+        }*/
+
+        Thread thread=new Thread();
+        if (head!=null) {head.getTime();
+            while (true) {
+                CountDownLatch latch = new CountDownLatch(size);
+                System.out.println(head.getTime()+"时间到！");
+                latch.await(head.getTime().getTime(), TimeUnit.SECONDS);
+                if (head.getNext() != null) {
+                    head = head.getNext();
+                } else {
+                    break;
+                }
+            }
         }
-        CountDownLatch latch = new CountDownLatch(size);
-        if (head!=null){
+        /*if (head!=null){
             while (true){
-                new Thread(new Runnable() {
+                Thread.sleep(1000*head.getTime());
+                System.out.println(head.getTime()+"时间到！");
+                latch.countDown();
+                *//*new Thread(new Runnable() {
                     @Override
                     public void run() {
                         System.out.println(Thread.currentThread().getName() + " 运行");
@@ -67,17 +89,17 @@ public class Link {
                             latch.countDown();
                         }
                     }
-                }).start();
+                }).start();*//*
                 if (head.getNext()!=null){
                     head=head.getNext();
                 }else {
                     break;
                 }
-            }
-            System.out.println("计时器已经启动");
-            latch.await(10, TimeUnit.SECONDS);
-            System.out.println("子线程运行结束");
+            }*/
+            /*System.out.println("计时器已经启动");
+            latch.await(100, TimeUnit.SECONDS);
+            System.out.println("子线程运行结束");*/
 
-        }
+
     }
 }

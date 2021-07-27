@@ -1,19 +1,19 @@
 package aaa;
 
 public class Node {
-    private int time;
+    private De time;
     private Node next;
 
-    public Node(int time, Node next) {
+    public Node(De time, Node next) {
         this.time = time;
         this.next = next;
     }
 
-    public int getTime() {
+    public De getTime() {
         return time;
     }
 
-    public void setTime(int time) {
+    public void setTime(De time) {
         this.time = time;
     }
 
