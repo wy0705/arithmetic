@@ -9,16 +9,7 @@ import java.util.concurrent.CountDownLatch;
 import java.util.concurrent.TimeUnit;
 
 
-/*class Task{
-    long time=0;
-    public Task(long time) {
-        this.time=time;
-    }
 
-    public void run() {
-        System.out.println("task begin -- waittime"+time );
-    }
-}*/
 class Tools{
     public int[] stringtoints(String s){
         String[] spilt=s.split(":");
